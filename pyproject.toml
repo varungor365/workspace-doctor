@@ -16,6 +16,7 @@ dependencies = []
 dev = ["pytest>=8.0"]
 
 [project.scripts]
+workspace-doctor = "workspace_doctor.cli:main"
 workspace_doctor = "workspace_doctor.cli:main"
 
 [tool.setuptools.packages.find]
