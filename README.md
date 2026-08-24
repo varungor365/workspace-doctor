@@ -1,4 +1,4 @@
-# workspace-doctor
+# workspace-doctor: Project Setup Diagnostics
 
 **Diagnose a project setup before you lose an hour to a broken environment.**
 
@@ -9,8 +9,8 @@
 ```bash
 pipx install workspace-doctor
 cd path/to/project
-workspace-doctor
-workspace-doctor --json > workspace-health.json
+workspace_doctor
+workspace_doctor --json > workspace-health.json
 ```
 
 Example output:
