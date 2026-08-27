@@ -6,6 +6,8 @@
 
 ## Quick start
 
+For a disposable demo that creates a temporary Git repository and runs read-only checks, use [examples/health-check.sh](examples/health-check.sh).
+
 ```bash
 pipx install workspace-doctor
 cd path/to/project
