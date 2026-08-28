@@ -1,15 +1,28 @@
-# workspace-doctor: Project Setup Diagnostics
+# workspace-doctor: Python, Node.js, and Docker Setup Diagnostics
 
 **Diagnose a project setup before you lose an hour to a broken environment.**
 
-`workspace-doctor` is a local, read-only CLI that inspects a repository, detects common Python/Node/Docker project markers, checks available tool versions, and prints actionable setup hints. It never installs packages, edits files, or uploads source code.
+`workspace-doctor` is a local, read-only CLI that inspects a repository, detects common Python, Node.js, and Docker project markers, checks available tool versions, and prints actionable setup hints. It never installs packages, edits files, or uploads source code.
 
-## Quick start
+## Why this exists
+
+Setup failures often come from small mismatches: a missing runtime, an unexpected lockfile, a version-manager file, or an environment file that should not be shared. This tool provides a fast first pass before deeper debugging or opening a support issue.
+
+| Use case | Output |
+|---|---|
+| New project onboarding | A quick health check for local runtimes and project markers. |
+| Support requests | Stable JSON that can be attached to an issue without uploading source files. |
+| CI preflight | A local-only diagnostic step before expensive builds. |
+| Mixed-language repositories | One command that recognizes Python, Node.js, and Docker signals. |
+
+## Three-minute quick start
 
 For a disposable demo that creates a temporary Git repository and runs read-only checks, use [examples/health-check.sh](examples/health-check.sh).
 
 ```bash
-pipx install workspace-doctor
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install workspace-doctor
 cd path/to/project
 workspace_doctor
 workspace_doctor --json > workspace-health.json
@@ -30,19 +43,23 @@ The doctor locates the Git root, detects `pyproject.toml`, `package.json`, Docke
 
 All checks are local and read-only. A warning is a prompt for investigation, not proof that a project is broken.
 
-## Why star this repository
+## Safe defaults and limitations
 
-Star this project if you maintain Python, Node, or Docker repositories, help other developers troubleshoot setup issues, or want a small diagnostic CLI to extend with project-specific checks.
+`workspace-doctor` does not install dependencies, execute project build scripts, inspect source-code correctness, validate credentials, or access the network. Tool-version checks describe what is available on the current machine; they do not prove that a project is compatible with every version. Review warnings in the context of the repository's own documentation and lockfiles.
+
+## Why star this repository?
+
+Star this project if you maintain Python, Node.js, or Docker repositories, help other developers troubleshoot setup issues, or want a small diagnostic CLI to extend with project-specific checks.
 
 ## Development
 
 ```bash
 git clone https://github.com/varungor365/workspace-doctor
 cd workspace-doctor
-python -m pip install -e ".[dev]"
+python -m pip install -e '.[dev]'
 pytest -q
 ```
 
 ## License
 
-MIT.
+MIT. See [LICENSE](LICENSE).
