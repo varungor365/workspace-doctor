@@ -1,5 +1,7 @@
 # workspace-doctor: Python, Node.js, and Docker Setup Diagnostics
 
+[![CI](https://github.com/varungor365/workspace-doctor/actions/workflows/ci.yml/badge.svg)](https://github.com/varungor365/workspace-doctor/actions/workflows/ci.yml)
+
 **Diagnose a project setup before you lose an hour to a broken environment.**
 
 `workspace-doctor` is a local, read-only CLI that inspects a repository, detects common Python, Node.js, and Docker project markers, checks available tool versions, and prints actionable setup hints. It never installs packages, edits files, or uploads source code.
