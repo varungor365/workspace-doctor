@@ -17,6 +17,7 @@ dev = ["pytest>=8.0"]
 
 [project.scripts]
 workspace_doctor = "workspace_doctor.cli:main"
+workspace-doctor = "workspace_doctor.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["workspace_doctor*"]
